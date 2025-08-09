@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
     public string firstLevelName;
 
     public GameObject settingsMenu;
+    public GameObject creditsMenu;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,5 +38,15 @@ public class MainMenu : MonoBehaviour
     public void CloseSettings()
     {
         settingsMenu.SetActive(false);
+    }
+
+    public void OpenCredits()
+    {
+        creditsMenu.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        creditsMenu.SetActive(false);
     }
 }
