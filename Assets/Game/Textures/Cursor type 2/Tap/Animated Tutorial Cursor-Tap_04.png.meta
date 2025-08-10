@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 43e802311e7992747a3521c57c22fecf
+guid: becedf80a722b964d9d8495e354c1180
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9101897101482233072
-    second: SPR_momA_0
+      213: 2200018404749721390
+    second: Animated Tutorial Cursor-Tap_04_0
+  - first:
+      213: -4611980000808661464
+    second: Animated Tutorial Cursor-Tap_04_1
+  - first:
+      213: 2306802563160248439
+    second: Animated Tutorial Cursor-Tap_04_2
+  - first:
+      213: 42266702949414335
+    second: Animated Tutorial Cursor-Tap_04_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +106,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,23 +122,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPR_momA_0
+      name: Animated Tutorial Cursor-Tap_04_4
       rect:
         serializedVersion: 2
-        x: 773
-        y: 0
-        width: 349
-        height: 932
+        x: 444
+        y: 347
+        width: 246
+        height: 291
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0137ef36fc09fa180800000000000000
-      internalID: -9101897101482233072
+      spriteID: 78cbf18b73bc41b47b59ec08a59b2ab6
+      internalID: 59470741
       vertices: []
       indices: 
       edges: []
@@ -151,8 +147,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -161,7 +157,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SPR_momA_0: -9101897101482233072
+      Animated Tutorial Cursor-Tap_04_0: 2200018404749721390
+      Animated Tutorial Cursor-Tap_04_1: -4611980000808661464
+      Animated Tutorial Cursor-Tap_04_2: 2306802563160248439
+      Animated Tutorial Cursor-Tap_04_3: 42266702949414335
+      Animated Tutorial Cursor-Tap_04_4: 59470741
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

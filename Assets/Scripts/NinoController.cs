@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro; // Importante si usas TextMeshProUGUI
+using UnityEngine.UI; 
 
 public class NinoController : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class NinoController : MonoBehaviour
     public TextMeshProUGUI scoreText;   // arrástralo en el Inspector
 
     float scoreAccum = 0f; // acumulador en float para sumar suave por Time.deltaTime
+
+    //barra de carga simula avance del juego del niño
+    [SerializeField] private Slider barraDeCarga;
+    [SerializeField] private float velocidadCarga = 0.15f; // Llenado de la barra por segundo
 
     void Start()
     {
@@ -37,6 +42,9 @@ public class NinoController : MonoBehaviour
         {
             scoreAccum += pointsPerSecond * Time.deltaTime;
 
+            // Actualizar la barra de carga
+            LlenarBarra();
+
             int newScore = Mathf.FloorToInt(scoreAccum);
             if (newScore != score)
             {
@@ -47,6 +55,14 @@ public class NinoController : MonoBehaviour
                 else
                     Debug.LogWarning("[NinoController] scoreText es NULL: asigna el TextMeshProUGUI en el Inspector.");
             }
+        }
+    }
+
+    private void LlenarBarra()
+    {
+        if (barraDeCarga.value < barraDeCarga.maxValue)
+        {
+            barraDeCarga.value += velocidadCarga * Time.deltaTime;
         }
     }
 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 43e802311e7992747a3521c57c22fecf
+guid: 7e63d7b8ac60a2849b8606d1f9e250fd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9101897101482233072
-    second: SPR_momA_0
+      213: -820906876449234035
+    second: BG_color_room_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,23 +113,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPR_momA_0
+      name: BG_color_room_0
       rect:
         serializedVersion: 2
-        x: 773
+        x: 0
         y: 0
-        width: 349
-        height: 932
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0137ef36fc09fa180800000000000000
-      internalID: -9101897101482233072
+      spriteID: d8361939b8d8b94f0800000000000000
+      internalID: -820906876449234035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cama
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 0
+        width: 1202
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b5d6653d49f7c489227df76ffb1591
+      internalID: -1602869108
       vertices: []
       indices: 
       edges: []
@@ -151,7 +160,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bafa43096b7d0f4438cb6e08703ba312
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +170,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SPR_momA_0: -9101897101482233072
+      Cama: -1602869108
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

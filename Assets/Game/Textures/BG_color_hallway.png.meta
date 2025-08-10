@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 43e802311e7992747a3521c57c22fecf
+guid: c85177a26b1b1ca4bb326001b53595ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9101897101482233072
-    second: SPR_momA_0
+      213: -7380547618063237941
+    second: BG_color_hallway_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPR_momA_0
+      name: BG_color_hallway_0
       rect:
         serializedVersion: 2
-        x: 773
+        x: 687
         y: 0
-        width: 349
-        height: 932
+        width: 535
+        height: 1025
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0137ef36fc09fa180800000000000000
-      internalID: -9101897101482233072
+      spriteID: bcc3c719b07039990800000000000000
+      internalID: -7380547618063237941
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SPR_momA_0: -9101897101482233072
+      BG_color_hallway_0: -7380547618063237941
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
