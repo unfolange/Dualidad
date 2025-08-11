@@ -1,11 +1,14 @@
 using UnityEngine;
 using TMPro; // Importante si usas TextMeshProUGUI
 using System.Collections;
+using UnityEngine.UI;
 
 public class NinoController : MonoBehaviour
 {
     public Animator animator; // Debe tener parámetro int "estado"
     public EstadoNino estadoActual = EstadoNino.Idle;
+    [SerializeField] private Slider barraDeCarga;
+    [SerializeField] private float velocidadCarga = 0.25f;
 
     public int score = 0;
     public float pointsPerSecond = 10f; // puntos por segundo mientras se mantiene presionado
@@ -39,9 +42,16 @@ public class NinoController : MonoBehaviour
 
         if (pressing && estadoActual == EstadoNino.Playing)
         {
-            scoreAccum += pointsPerSecond * Time.deltaTime;
+            float turnScore = pointsPerSecond * Time.deltaTime;
+
+            scoreAccum += turnScore;
+
+            LlenarBarra();
 
             int newScore = Mathf.FloorToInt(scoreAccum);
+            Debug.Log($"Turn score: {turnScore} {scoreAccum} {newScore}");
+            GameManager.Instance.SetPuntaje(newScore);
+
             if (newScore != score)
             {
                 score = newScore;
@@ -51,6 +61,14 @@ public class NinoController : MonoBehaviour
                 else
                     Debug.LogWarning("[NinoController] scoreText es NULL: asigna el TextMeshProUGUI en el Inspector.");
             }
+        }
+    }
+
+    private void LlenarBarra()
+    {
+        if (barraDeCarga.value < barraDeCarga.maxValue)
+        {
+            barraDeCarga.value += velocidadCarga * Time.deltaTime;
         }
     }
 

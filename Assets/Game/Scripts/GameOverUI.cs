@@ -20,14 +20,14 @@ public class GameOverUI : MonoBehaviour
         }
     }
 
-        // Asignar botones
+    // Asignar botones
     public void OnClickReintentar()
     {
-        SceneManager.LoadScene("room");
+        SceneManager.LoadScene("room", LoadSceneMode.Single);
     }
 
     public void OnClickMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
     }
 }
