@@ -3,45 +3,55 @@ using System.Collections;
 
 public class ZonaClick : MonoBehaviour
 {
-    public EstadoNino estadoAlClic = EstadoNino.Playing; // Configura según zona
-    public NinoController nino; // Arrástralo desde el inspector
-    public float tiempoGracia = 1f; // acumulador en float para sumar suave por Time.deltaTime
+    public EstadoNino estadoAlClic = EstadoNino.Playing;
+    public NinoController nino;
+    [Tooltip("Retraso al soltar antes de volver a Idle")]
+    public float graciaAlSoltar = 0.2f;
 
-    private Coroutine cambioIdleCoroutine;
+    bool presionadoDentro = false;
+    Coroutine coGracia;
 
     void OnMouseDown()
     {
-        Debug.Log("click registradoo!");
+        presionadoDentro = true;
+        if (coGracia != null) { StopCoroutine(coGracia); coGracia = null; }
+        if (nino) nino.SetEstado(estadoAlClic);
+    }
 
-        // Si había un cambio a Idle programado, lo cancelamos
-        if (cambioIdleCoroutine != null)
+    void Update()
+    {
+        // Si empezamos el clic en esta zona, mantener el estado mientras el botón esté abajo
+        if (presionadoDentro)
         {
-            StopCoroutine(cambioIdleCoroutine);
-            cambioIdleCoroutine = null;
-        }
-
-        if (nino != null)
-        {
-            nino.SetEstado(estadoAlClic);
-            Debug.Log($"Estado cambiado a: {estadoAlClic} ({(int)estadoAlClic})");
+            if (!Input.GetMouseButton(0))  // se soltó en cualquier parte de la pantalla
+            {
+                presionadoDentro = false;
+                if (coGracia != null) StopCoroutine(coGracia);
+                coGracia = StartCoroutine(VolverAIdleTrasGracia());
+            }
+            else
+            {
+                // (opcional) si quieres “refrescar” Playing por si el clip terminó:
+                // if (estadoAlClic == EstadoNino.Playing && nino) nino.SetEstado(EstadoNino.Playing);
+            }
         }
     }
 
     void OnMouseUp()
     {
-        Debug.Log("suelta click!");
-        // Programar cambio a Idle después del tiempo de gracia
-        if (nino != null)
+        // Si sueltas encima, también vuelve a Idle con gracia
+        if (presionadoDentro)
         {
-            cambioIdleCoroutine = StartCoroutine(CambiarIdleConRetraso());
+            presionadoDentro = false;
+            if (coGracia != null) StopCoroutine(coGracia);
+            coGracia = StartCoroutine(VolverAIdleTrasGracia());
         }
     }
 
-    IEnumerator CambiarIdleConRetraso()
+    IEnumerator VolverAIdleTrasGracia()
     {
-        yield return new WaitForSeconds(tiempoGracia);
-        nino.SetEstado(EstadoNino.Idle);
-        cambioIdleCoroutine = null;
-        Debug.Log("Tiempo de gracia terminado → Idle");
+        yield return new WaitForSeconds(graciaAlSoltar);
+        if (nino) nino.SetEstado(EstadoNino.Idle);
+        coGracia = null;
     }
 }

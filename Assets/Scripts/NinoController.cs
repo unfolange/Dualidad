@@ -80,16 +80,17 @@ public class NinoController : MonoBehaviour
                 animator.Play("Playing", 0, 0f);
             }
         }
-
-        // Mover al punto correspondiente
-        Transform destino =
-            nuevoEstado == EstadoNino.Studying ? puntoEstudio :
-            nuevoEstado == EstadoNino.Cleaning ? puntoOficio :
-            puntoIdle;
-
-        IrAPunto(destino);
-
+        if (nuevoEstado == EstadoNino.Studying || nuevoEstado == EstadoNino.Cleaning || nuevoEstado == EstadoNino.Idle)
+        {
+            // Mover al punto correspondiente
+            Transform destino =
+                nuevoEstado == EstadoNino.Studying ? puntoEstudio :
+                nuevoEstado == EstadoNino.Cleaning ? puntoOficio :
+                puntoIdle;
+            IrAPunto(destino);
+        }
         Debug.Log($"Estado cambiado a: {estadoActual} ({(int)estadoActual})");
+
     }
 
 
@@ -110,7 +111,7 @@ public class NinoController : MonoBehaviour
 
         rb.MovePosition(destino);
         // opcional: al llegar, poner Idle
-        SetEstado(EstadoNino.Idle);
+        //SetEstado(EstadoNino.Idle);
         moverCo = null;
     }
 }
