@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cleaning
+  m_Name: idlePlayer
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 5015766814789601838, guid: e185422eef6463b42833b69c45b16315, type: 3}
+      value: {fileID: -731636069343114764, guid: 449f1545600b5814ebc302b52ded3951, type: 3}
     - time: 0.33333334
-      value: {fileID: -6571073346934775079, guid: b671ff96e868909479655e65e6a4e64e, type: 3}
+      value: {fileID: -4296355937464044878, guid: 0af533c55e3e2e143abb5a0d8b981ff0, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 5015766814789601838, guid: e185422eef6463b42833b69c45b16315, type: 3}
-    - {fileID: -6571073346934775079, guid: b671ff96e868909479655e65e6a4e64e, type: 3}
+    - {fileID: -731636069343114764, guid: 449f1545600b5814ebc302b52ded3951, type: 3}
+    - {fileID: -4296355937464044878, guid: 0af533c55e3e2e143abb5a0d8b981ff0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
