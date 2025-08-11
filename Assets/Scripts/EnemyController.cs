@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    public Animator animator;
     private bool isWaiting = false;
 
     void Awake()
@@ -41,7 +42,6 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"{other} -> Enter collider2d");
         // Cambiar dirección según nombre del trigger
         if (other.CompareTag("Untagged")) { /* no es obligatorio usar tags */ }
 
@@ -58,12 +58,13 @@ public class EnemyController : MonoBehaviour
         else if (other.name.Equals("DangerZone"))
         {
             Debug.Log($"{name} -> Enter DANGER ZONE trigger");
+            WatchKid();
+            StartCoroutine(StopWatchingKid());
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log($"{other} -> Exit collider2d");
         if (other.name.Equals("LeftLimit"))
         {
             Debug.Log($"{name} -> Exit LEFT trigger");
@@ -94,6 +95,25 @@ public class EnemyController : MonoBehaviour
         isWaiting = false;
     }
 
+    private void WatchKid()
+    {
+        SetAnimWalk(true);
+        isWaiting = true;
+    }
+
+    private IEnumerator StopWatchingKid()
+    {
+
+
+        float waitTime = 3f;
+        Debug.Log($"{name} esperando {waitTime:F2} seg antes de moverse");
+
+        yield return new WaitForSeconds(waitTime);
+
+        isWaiting = false;
+        SetAnimWalk(false);
+    }
+
     // Opcional: para depurar o cambiar desde otros scripts/UI
     public void SetSpeed(float newSpeed) => speed = Mathf.Max(0f, newSpeed);
     public void SetDirection(int dir)
@@ -101,5 +121,14 @@ public class EnemyController : MonoBehaviour
         direction = Mathf.Clamp(dir, -1, 1);
         if (direction == 0) direction = 1;
         if (flipSpriteOnTurn && sr) sr.flipX = direction < 0;
+    }
+
+    void SetAnimWalk(bool walking)
+    {
+        if (!animator) return;
+        // estado: 0 = idle, 1 = walk
+        animator.SetInteger("estado", walking ? 1 : 0);
+        string animacion = walking ? "caminando" : "esperando";
+        Debug.Log($"Cambiando animacion a {animacion}");
     }
 }
