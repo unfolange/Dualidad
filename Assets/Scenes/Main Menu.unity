@@ -5051,7 +5051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e39a7c3dc2c414b80487cc4d950137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevelName: room
+  firstLevelName: Tutorial
   settingsMenu: {fileID: 131640389}
   creditsMenu: {fileID: 1849890615}
 --- !u!4 &1508193565
