@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         Debug.Log($"iswaiting {isWaiting}");
-        if (!isWaiting)
+        if (!isWaiting && !dangerZone.GetComponent<DangerZone>().isDangerZoneOccupied)
         {
             rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
         }
