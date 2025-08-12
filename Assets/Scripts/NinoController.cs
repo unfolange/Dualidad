@@ -21,6 +21,12 @@ public class NinoController : MonoBehaviour
     Rigidbody2D rb;
     Coroutine moverCo;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip clipEstudio;
+    [SerializeField] private AudioClip clipOficio;
+    [SerializeField] private AudioClip clipJuego;
+
     void Start()
     {
         // Mostrar el score inicial y avisar si no está asignado
@@ -34,11 +40,19 @@ public class NinoController : MonoBehaviour
         {
             scoreText.text = "Score: " + score;
         }
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         bool pressing = Input.GetMouseButton(0) || Input.touchCount > 0;
+
+        // Si está en Playing pero se dejó de presionar, detener el audio
+        if (!pressing && estadoActual == EstadoNino.Playing && audioSource.isPlaying)
+        {
+            if (audioSource.clip == clipJuego)
+                audioSource.Stop();
+        }
 
         if (pressing && estadoActual == EstadoNino.Playing)
         {
@@ -57,7 +71,7 @@ public class NinoController : MonoBehaviour
                 score = newScore;
 
                 if (scoreText != null)
-                    scoreText.text = "Score: " + score;
+                    scoreText.text = "Puntaje: " + score;
                 else
                     Debug.LogWarning("[NinoController] scoreText es NULL: asigna el TextMeshProUGUI en el Inspector.");
             }
@@ -74,6 +88,32 @@ public class NinoController : MonoBehaviour
 
     public void SetEstado(EstadoNino nuevoEstado)
     {
+        // Detener cualquier sonido que esté sonando
+        if (audioSource.isPlaying) audioSource.Stop();
+
+        // Reproducir sonido según el estado
+        switch (nuevoEstado)
+        {
+            case EstadoNino.Studying:
+                if (clipEstudio != null)
+                    audioSource.PlayOneShot(clipEstudio);
+                break;
+
+            case EstadoNino.Cleaning:
+                if (clipOficio != null)
+                    audioSource.PlayOneShot(clipOficio);
+                break;
+
+            case EstadoNino.Playing:
+                if (clipJuego != null)
+                {
+                    audioSource.clip = clipJuego;
+                    audioSource.loop = true;
+                    audioSource.Play();
+                }
+                break;
+        }
+
         // Si ya estoy en el mismo estado...
         if (estadoActual == nuevoEstado)
         {
